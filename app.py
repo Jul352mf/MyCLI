@@ -534,12 +534,17 @@ def main() -> None:
     args, _ = parser.parse_known_args()
 
     # New window logic (only on Windows)
-    force_in_place = os.environ.get("MYCLI_FORCE_IN_PLACE") == "1"
+    # When running in headless/test mode (MYCLI_NO_UI=1), always run in-place
+    force_in_place = (
+        os.environ.get("MYCLI_FORCE_IN_PLACE") == "1"
+        or os.environ.get("MYCLI_NO_UI") == "1"
+    )
     if os.name == "nt" and not args.in_place and not force_in_place:
         # Avoid recursion: if already marked in-place, we skip spawning
         wt = shutil.which("wt.exe")
-        # Build a PowerShell-friendly command that runs this Python
-        cmdline = f'& "{sys.executable}" -m mycli --in-place'
+        # Build a PowerShell-friendly command that runs the app module directly
+        # Using -m app works from source checkouts without requiring package install
+        cmdline = f'& "{sys.executable}" -m app --in-place'
         if wt:
             try:
                 subprocess.Popen(

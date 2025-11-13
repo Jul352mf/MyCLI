@@ -21,6 +21,11 @@ def load_all_projects() -> None:
         
         if not os.path.isdir(folder_path):
             continue
+
+        # Do not treat the MyCLI tool's own folder as a project even if a
+        # project.yaml exists there (can happen when running locally).
+        if folder_name.lower() == "mycli":
+            continue
         
         config_path = os.path.join(folder_path, "project.yaml")
         

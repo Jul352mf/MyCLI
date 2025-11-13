@@ -5,6 +5,7 @@ state.py
 backend/__init__.py
 backend/catalog.py
 backend/creator.py
+backend/env.py
 backend/executor.py
 backend/git_ops.py
 backend/health.py
@@ -30,6 +31,7 @@ components/command_dialog.py
 components/create_modal.py
 components/dashboard.py
 components/edit_memory_modal.py
+components/env_modal.py
 components/footer_bar.py
 components/git_modal.py
 components/header_bar.py
