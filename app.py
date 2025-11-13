@@ -14,6 +14,7 @@ from components.edit_memory_modal import EditMemoryModal
 from components.env_modal import EnvModal
 from components.command_dialog import CommandDialog
 from components.add_project_modal import AddProjectModal
+from components.system_quick_commands_modal import SystemQuickCommandsModal
 from backend.loader import load_all_projects
 from backend.executor import start_environment, stop_environment, open_urls
 from backend.tasks import load_tasks, execute_task
@@ -36,6 +37,7 @@ class MyCLIApp(App):
         Binding("a", "add_project", "Add Path", priority=True),
         Binding("g", "git_panel", "Git", priority=True),
         Binding("r", "open_command_dialog", "Run Cmd", priority=True),
+        Binding("s", "system_quick_commands", "Quick Cmds", priority=True),
         Binding("f5", "refresh_commands", "Refresh", priority=True),
         Binding("m", "edit_memory", "Memory", priority=True),
         Binding("e", "open_env", "Env", priority=True),
@@ -280,6 +282,10 @@ class MyCLIApp(App):
             self.query_one(StatusBar).show_message("⚠ No project selected")
             return
         self.push_screen(EnvModal())
+    
+    def action_system_quick_commands(self) -> None:
+        """Open system quick commands modal."""
+        self.push_screen(SystemQuickCommandsModal())
     
     def action_handle_escape(self) -> None:
         """Handle escape key - return to dashboard view."""
