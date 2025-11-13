@@ -294,3 +294,68 @@ class RawArtifact(BaseModel):
         None, description="Parser confidence score (0..1)"
     )
 
+
+# ---------------------------------------------------------------------------
+# Quick Commands & Project Dashboard Models (PRD_next_session.md)
+# ---------------------------------------------------------------------------
+
+
+class QuickCommand(BaseModel):
+    """Custom quick command definition for system-wide shortcuts."""
+
+    id: str = Field(..., description="Unique identifier for the command")
+    name: str = Field(..., min_length=1, description="Display name")
+    adapter: str = Field(
+        ..., description="Execution adapter (e.g., 'shell', 'taskfile', 'npm')"
+    )
+    command: str = Field(..., description="Command string to execute")
+    args: List[str] = Field(
+        default_factory=list, description="Default arguments"
+    )
+    scope: Literal["global", "project"] = Field(
+        "global", description="Scope of the command"
+    )
+    description: Optional[str] = Field(
+        None, description="Optional description"
+    )
+    created_at: str = Field(..., description="ISO timestamp of creation")
+
+    @classmethod
+    def create(
+        cls,
+        name: str,
+        adapter: str,
+        command: str,
+        **kwargs: Any,
+    ) -> "QuickCommand":
+        """Factory creating a quick command with generated ID."""
+        from datetime import datetime, timezone
+        cmd_id = stable_command_id([adapter, command, name])
+        created_at = kwargs.pop("created_at", datetime.now(timezone.utc).isoformat())
+        return cls(
+            id=cmd_id,
+            name=name,
+            adapter=adapter,
+            command=command,
+            created_at=created_at,
+            **kwargs,
+        )
+
+
+class URLDefinition(BaseModel):
+    """URL definition for project workspace."""
+
+    url: str = Field(..., description="The URL string")
+    label: Optional[str] = Field(None, description="Display label")
+
+
+class StartStopMapping(BaseModel):
+    """Start/stop command mapping for project."""
+
+    start_command: Optional[str] = Field(
+        None, description="Command name to start environment"
+    )
+    stop_command: Optional[str] = Field(
+        None, description="Command name to stop environment"
+    )
+
