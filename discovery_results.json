@@ -1,0 +1,1897 @@
+{
+  "commands": [
+    {
+      "id": "cdf73074fec6b391",
+      "name": "check",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Run quick dependency check",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "check",
+          "description": "Run quick dependency check",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "9617b8644d327180",
+      "name": "check:verbose",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Run quick dependency check (verbose)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "check:verbose",
+          "description": "Run quick dependency check (verbose)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "9b7f6cc6547309ba",
+      "name": "health",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Run health check for frontend and runtime",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "health",
+          "description": "Run health check for frontend and runtime",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "6ed56b79ab10d549",
+      "name": "health:frontend",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Run health check for frontend only",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "health:frontend",
+          "description": "Run health check for frontend only",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "ecc7d46f7367a5db",
+      "name": "health:runtime",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Run health check for runtime only",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "health:runtime",
+          "description": "Run health check for runtime only",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "53ed87ae49d329f8",
+      "name": "health:workspace",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Run health check for workspace runtime (port 2024)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "health:workspace",
+          "description": "Run health check for workspace runtime (port 2024)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "20523782cabbd217",
+      "name": "health:all",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Run health check for all services (runtime, MCP gateway, frontend)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "health:all",
+          "description": "Run health check for all services (runtime, MCP gateway, frontend)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "e3d0cf5fd3901d32",
+      "name": "health:silent",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Run health check with minimal output",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "health:silent",
+          "description": "Run health check with minimal output",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "8a5a74b9c3982818",
+      "name": "prod:logs",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Fetch production logs from all services (Runtime, MCP Gateway, Frontend)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "prod:logs",
+          "description": "Fetch production logs from all services (Runtime, MCP Gateway, Frontend)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "5652d7de0977efcc",
+      "name": "prod:logs:runtime",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Fetch production logs from Runtime only",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "prod:logs:runtime",
+          "description": "Fetch production logs from Runtime only",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "bf00c538e8e3cf2b",
+      "name": "prod:logs:mcp",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Fetch production logs from MCP Gateway only",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "prod:logs:mcp",
+          "description": "Fetch production logs from MCP Gateway only",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "eb78ceb71c62148d",
+      "name": "prod:logs:frontend",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Fetch production logs from Frontend only",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "prod:logs:frontend",
+          "description": "Fetch production logs from Frontend only",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "96c1a68d1ece1094",
+      "name": "prod:logs:1h",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Fetch last 60 minutes of production logs from all services",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "prod:logs:1h",
+          "description": "Fetch last 60 minutes of production logs from all services",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "da98ecccca3149d7",
+      "name": "prod:monitor",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start live production monitoring with 4 tabs (Runtime, MCP Gateway, Frontend, Dashboard)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "prod:monitor",
+          "description": "Start live production monitoring with 4 tabs (Runtime, MCP Gateway, Frontend, Dashboard)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "e2bdf28974c750b8",
+      "name": "prod:monitor:stop",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Stop all production monitoring tabs and save logs",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "prod:monitor:stop",
+          "description": "Stop all production monitoring tabs and save logs",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "2983f2818a478e68",
+      "name": "sync",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Sync all dependencies for JAGI development environment",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "sync",
+          "description": "Sync all dependencies for JAGI development environment",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "42ea51c1a3c178df",
+      "name": "sync:verbose",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Sync all dependencies for JAGI development environment (verbose)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "sync:verbose",
+          "description": "Sync all dependencies for JAGI development environment (verbose)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "7b122f0de3ad6a87",
+      "name": "dev:frontend",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start JAGI frontend in new terminal tab",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:frontend",
+          "description": "Start JAGI frontend in new terminal tab",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "37d1d803c1eaff07",
+      "name": "dev:runtime",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start JAGI Python runtime (jagi-os-core-py) with 132+ models",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:runtime",
+          "description": "Start JAGI Python runtime (jagi-os-core-py) with 132+ models",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "dcdecdaf8ccde9f7",
+      "name": "dev:runtime:active",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start Python runtime using the ROOT active venv (uv --active) ignoring subproject .venv",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:runtime:active",
+          "description": "Start Python runtime using the ROOT active venv (uv --active) ignoring subproject .venv",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "cfa87fcc7921821a",
+      "name": "dev:runtime:legacy",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start legacy TypeScript runtime (jagi-os-core) - DEPRECATED",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:runtime:legacy",
+          "description": "Start legacy TypeScript runtime (jagi-os-core) - DEPRECATED",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "19b48ffcf0867576",
+      "name": "dev:runtime:up",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start JAGI runtime (standalone server) in new terminal tab",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:runtime:up",
+          "description": "Start JAGI runtime (standalone server) in new terminal tab",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "617b9d91b6e111db",
+      "name": "dev:runtime:bootstrap",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Ensure default assistants exist for each graph (local dev)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:runtime:bootstrap",
+          "description": "Ensure default assistants exist for each graph (local dev)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "e3a5bd98aedffb2c",
+      "name": "dev:runtime:all",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start runtime and bootstrap defaults",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:runtime:all",
+          "description": "Start runtime and bootstrap defaults",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "9784abace8e14b42",
+      "name": "dev:runtime:up:py",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Build and start standalone LangGraph server via Python CLI (Docker)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:runtime:up:py",
+          "description": "Build and start standalone LangGraph server via Python CLI (Docker)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "81225a36d668d78b",
+      "name": "dev:runtime:build:py",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Build standalone LangGraph server image via Python CLI (Docker)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:runtime:build:py",
+          "description": "Build standalone LangGraph server image via Python CLI (Docker)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "d1827b9fc61456ce",
+      "name": "cleanup:assistants",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Clean up duplicate assistants in Python runtime (keeps only most recent per graph)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "cleanup:assistants",
+          "description": "Clean up duplicate assistants in Python runtime (keeps only most recent per graph)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "afa1fbf5b478f0ad",
+      "name": "dev:langconnect",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start LangConnect service in new terminal tab",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:langconnect",
+          "description": "Start LangConnect service in new terminal tab",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "d9ea237355d9a74e",
+      "name": "dev:tools",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start Tools agent in new terminal tab",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:tools",
+          "description": "Start Tools agent in new terminal tab",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "c6aec904de67662f",
+      "name": "dev:supervisor",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start OAP Supervisor agent in new terminal tab",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:supervisor",
+          "description": "Start OAP Supervisor agent in new terminal tab",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "2d2fd21aa05c59fc",
+      "name": "dev:research",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start Deep Research agent in new terminal tab",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:research",
+          "description": "Start Deep Research agent in new terminal tab",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "b7d524c583d00818",
+      "name": "dev:workspace-runtime",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start Workspace Runtime (Python FastAPI + LangGraph v1) in new terminal tab",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:workspace-runtime",
+          "description": "Start Workspace Runtime (Python FastAPI + LangGraph v1) in new terminal tab",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "874f1f4182c77404",
+      "name": "dev:workspace-runtime:down",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Shutdown Workspace Runtime and all containers",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:workspace-runtime:down",
+          "description": "Shutdown Workspace Runtime and all containers",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "ea74b208ca95b8c5",
+      "name": "dev:workspace-runtime:logs",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Show Workspace Runtime logs",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:workspace-runtime:logs",
+          "description": "Show Workspace Runtime logs",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "c16b8f932c18ae41",
+      "name": "dev:workspace-runtime:restart",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Restart Workspace Runtime",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:workspace-runtime:restart",
+          "description": "Restart Workspace Runtime",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "3ac4ff00c3437876",
+      "name": "dev:workspace-runtime:build",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Rebuild Workspace Runtime containers",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:workspace-runtime:build",
+          "description": "Rebuild Workspace Runtime containers",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "6c5fa6f122837bb0",
+      "name": "dev:mcp-gateway",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start MCP Gateway in new terminal tab",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:mcp-gateway",
+          "description": "Start MCP Gateway in new terminal tab",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "a16cd79b3c2298f9",
+      "name": "dev:ngrok:mcp",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start ngrok tunnel for MCP Gateway (port 2027) in new terminal tab",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:ngrok:mcp",
+          "description": "Start ngrok tunnel for MCP Gateway (port 2027) in new terminal tab",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "184937ad604212e3",
+      "name": "dev:ngrok:frontend",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start ngrok tunnel for Frontend (port 3000) in new terminal tab",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:ngrok:frontend",
+          "description": "Start ngrok tunnel for Frontend (port 3000) in new terminal tab",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "7529d9f354b72049",
+      "name": "ngrok:url:mcp",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Print current ngrok HTTPS URL for MCP Gateway (port 2027)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "ngrok:url:mcp",
+          "description": "Print current ngrok HTTPS URL for MCP Gateway (port 2027)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "d32756fde24643c1",
+      "name": "ngrok:url:frontend",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Print current ngrok HTTPS URL for Frontend (port 3000)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "ngrok:url:frontend",
+          "description": "Print current ngrok HTTPS URL for Frontend (port 3000)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "ba3c7d5833cc9c83",
+      "name": "dev:ngrok:auto:mcp",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Ensure ngrok is running for MCP Gateway and print its HTTPS URL",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:ngrok:auto:mcp",
+          "description": "Ensure ngrok is running for MCP Gateway and print its HTTPS URL",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "678e0ec951f1c699",
+      "name": "dev:ngrok:auto:frontend",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Ensure ngrok is running for Frontend and print its HTTPS URL",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:ngrok:auto:frontend",
+          "description": "Ensure ngrok is running for Frontend and print its HTTPS URL",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "53c301be832f8a5c",
+      "name": "dev:dev-wizard",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start Dev Wizard application in new terminal tab",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:dev-wizard",
+          "description": "Start Dev Wizard application in new terminal tab",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "84c7bfecc33c415e",
+      "name": "dev:dev-wizard:api",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start Dev Wizard API server in new terminal tab",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:dev-wizard:api",
+          "description": "Start Dev Wizard API server in new terminal tab",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "b057fdf2c5f6ee63",
+      "name": "dev:trinity",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start the three essential services (Docker, Runtime, MCP Gateway, Frontend)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:trinity",
+          "description": "Start the three essential services (Docker, Runtime, MCP Gateway, Frontend)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "5703635da4d1a336",
+      "name": "dev:core",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start core services using Railway MCP Gateway (Docker, Runtime, Frontend, ngrok)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:core",
+          "description": "Start core services using Railway MCP Gateway (Docker, Runtime, Frontend, ngrok)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "3a19994cff4841be",
+      "name": "dev:restart:trinity",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Restart trinity services and check ngrok status (fastest dev loop)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:restart:trinity",
+          "description": "Restart trinity services and check ngrok status (fastest dev loop)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "e08577787f43fea9",
+      "name": "dev:restart:core",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Restart core services using Railway MCP Gateway (fastest dev loop for Railway)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:restart:core",
+          "description": "Restart core services using Railway MCP Gateway (fastest dev loop for Railway)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "32bfc423bb0bfb9d",
+      "name": "dev:all",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start complete JAGI development environment (clean output)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:all",
+          "description": "Start complete JAGI development environment (clean output)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "422f1e4a7070c33f",
+      "name": "dev:verbose",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Start complete JAGI development environment (verbose output)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:verbose",
+          "description": "Start complete JAGI development environment (verbose output)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "bd8f0b18721f8349",
+      "name": "dev:shutdown",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Shutdown all JAGI development services (clean output)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:shutdown",
+          "description": "Shutdown all JAGI development services (clean output)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "f637512e3d56567a",
+      "name": "dev:shutdown:verbose",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Shutdown all JAGI development services (verbose output)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:shutdown:verbose",
+          "description": "Shutdown all JAGI development services (verbose output)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "036b079d1141b11b",
+      "name": "dev:restart",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Restart all JAGI development services (shutdown + start)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:restart",
+          "description": "Restart all JAGI development services (shutdown + start)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "72c043accf7dddd3",
+      "name": "dev:restart:verbose",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Restart all JAGI development services (verbose output)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:restart:verbose",
+          "description": "Restart all JAGI development services (verbose output)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "88a5402d3961f15d",
+      "name": "dev:restart:quick",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Quick restart (frontend + runtime only) with health check",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:restart:quick",
+          "description": "Quick restart (frontend + runtime only) with health check",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "52f6024b956e1dea",
+      "name": "dev:status",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Show status of all JAGI development sessions",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:status",
+          "description": "Show status of all JAGI development sessions",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "a3419f38aa05ef48",
+      "name": "dev:cleanup",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Clean up stale JAGI session records",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "dev:cleanup",
+          "description": "Clean up stale JAGI session records",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "e85691bae05dfe5c",
+      "name": "smoke:workspace",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Run workspace runtime smoke test (health \u2192 create \u2192 list \u2192 write \u2192 read)",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "smoke:workspace",
+          "description": "Run workspace runtime smoke test (health \u2192 create \u2192 list \u2192 write \u2192 read)",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "b6091fcf29ac399b",
+      "name": "help",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Show available commands",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "help",
+          "description": "Show available commands",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    },
+    {
+      "id": "fe2df8c6e85e715e",
+      "name": "default",
+      "source_path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "origin": "taskfile",
+      "description": "Show help",
+      "parameters": [],
+      "tags": [],
+      "estimated_runtime_seconds": null,
+      "invocation": {},
+      "meta": {
+        "raw_meta": {
+          "task_name": "default",
+          "description": "Show help",
+          "origin": "taskfile",
+          "raw_cmd": null
+        }
+      }
+    }
+  ],
+  "raw_artifacts": [
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "check",
+        "description": "Run quick dependency check",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "check:verbose",
+        "description": "Run quick dependency check (verbose)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "health",
+        "description": "Run health check for frontend and runtime",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "health:frontend",
+        "description": "Run health check for frontend only",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "health:runtime",
+        "description": "Run health check for runtime only",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "health:workspace",
+        "description": "Run health check for workspace runtime (port 2024)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "health:all",
+        "description": "Run health check for all services (runtime, MCP gateway, frontend)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "health:silent",
+        "description": "Run health check with minimal output",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "prod:logs",
+        "description": "Fetch production logs from all services (Runtime, MCP Gateway, Frontend)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "prod:logs:runtime",
+        "description": "Fetch production logs from Runtime only",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "prod:logs:mcp",
+        "description": "Fetch production logs from MCP Gateway only",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "prod:logs:frontend",
+        "description": "Fetch production logs from Frontend only",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "prod:logs:1h",
+        "description": "Fetch last 60 minutes of production logs from all services",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "prod:monitor",
+        "description": "Start live production monitoring with 4 tabs (Runtime, MCP Gateway, Frontend, Dashboard)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "prod:monitor:stop",
+        "description": "Stop all production monitoring tabs and save logs",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "sync",
+        "description": "Sync all dependencies for JAGI development environment",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "sync:verbose",
+        "description": "Sync all dependencies for JAGI development environment (verbose)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:frontend",
+        "description": "Start JAGI frontend in new terminal tab",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:runtime",
+        "description": "Start JAGI Python runtime (jagi-os-core-py) with 132+ models",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:runtime:active",
+        "description": "Start Python runtime using the ROOT active venv (uv --active) ignoring subproject .venv",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:runtime:legacy",
+        "description": "Start legacy TypeScript runtime (jagi-os-core) - DEPRECATED",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:runtime:up",
+        "description": "Start JAGI runtime (standalone server) in new terminal tab",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:runtime:bootstrap",
+        "description": "Ensure default assistants exist for each graph (local dev)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:runtime:all",
+        "description": "Start runtime and bootstrap defaults",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:runtime:up:py",
+        "description": "Build and start standalone LangGraph server via Python CLI (Docker)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:runtime:build:py",
+        "description": "Build standalone LangGraph server image via Python CLI (Docker)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "cleanup:assistants",
+        "description": "Clean up duplicate assistants in Python runtime (keeps only most recent per graph)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:langconnect",
+        "description": "Start LangConnect service in new terminal tab",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:tools",
+        "description": "Start Tools agent in new terminal tab",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:supervisor",
+        "description": "Start OAP Supervisor agent in new terminal tab",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:research",
+        "description": "Start Deep Research agent in new terminal tab",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:workspace-runtime",
+        "description": "Start Workspace Runtime (Python FastAPI + LangGraph v1) in new terminal tab",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:workspace-runtime:down",
+        "description": "Shutdown Workspace Runtime and all containers",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:workspace-runtime:logs",
+        "description": "Show Workspace Runtime logs",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:workspace-runtime:restart",
+        "description": "Restart Workspace Runtime",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:workspace-runtime:build",
+        "description": "Rebuild Workspace Runtime containers",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:mcp-gateway",
+        "description": "Start MCP Gateway in new terminal tab",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:ngrok:mcp",
+        "description": "Start ngrok tunnel for MCP Gateway (port 2027) in new terminal tab",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:ngrok:frontend",
+        "description": "Start ngrok tunnel for Frontend (port 3000) in new terminal tab",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "ngrok:url:mcp",
+        "description": "Print current ngrok HTTPS URL for MCP Gateway (port 2027)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "ngrok:url:frontend",
+        "description": "Print current ngrok HTTPS URL for Frontend (port 3000)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:ngrok:auto:mcp",
+        "description": "Ensure ngrok is running for MCP Gateway and print its HTTPS URL",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:ngrok:auto:frontend",
+        "description": "Ensure ngrok is running for Frontend and print its HTTPS URL",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:dev-wizard",
+        "description": "Start Dev Wizard application in new terminal tab",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:dev-wizard:api",
+        "description": "Start Dev Wizard API server in new terminal tab",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:trinity",
+        "description": "Start the three essential services (Docker, Runtime, MCP Gateway, Frontend)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:core",
+        "description": "Start core services using Railway MCP Gateway (Docker, Runtime, Frontend, ngrok)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:restart:trinity",
+        "description": "Restart trinity services and check ngrok status (fastest dev loop)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:restart:core",
+        "description": "Restart core services using Railway MCP Gateway (fastest dev loop for Railway)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:all",
+        "description": "Start complete JAGI development environment (clean output)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:verbose",
+        "description": "Start complete JAGI development environment (verbose output)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:shutdown",
+        "description": "Shutdown all JAGI development services (clean output)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:shutdown:verbose",
+        "description": "Shutdown all JAGI development services (verbose output)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:restart",
+        "description": "Restart all JAGI development services (shutdown + start)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:restart:verbose",
+        "description": "Restart all JAGI development services (verbose output)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:restart:quick",
+        "description": "Quick restart (frontend + runtime only) with health check",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:status",
+        "description": "Show status of all JAGI development sessions",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "dev:cleanup",
+        "description": "Clean up stale JAGI session records",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "smoke:workspace",
+        "description": "Run workspace runtime smoke test (health \u2192 create \u2192 list \u2192 write \u2192 read)",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "help",
+        "description": "Show available commands",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    },
+    {
+      "type": "task",
+      "path": "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21\\Taskfile.yml",
+      "content_snippet": null,
+      "meta": {
+        "task_name": "default",
+        "description": "Show help",
+        "origin": "taskfile",
+        "raw_cmd": null
+      },
+      "confidence": 0.6
+    }
+  ]
+}

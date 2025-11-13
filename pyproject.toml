@@ -1,0 +1,50 @@
+[project]
+name = "mycli"
+version = "0.2.0"
+description = "Repository command discovery & X-ray scanner CLI (v2 scaffolding)"
+authors = [ { name = "Jul352mf" } ]
+requires-python = ">=3.11"
+readme = "README.md"
+license = "MIT"
+
+# Core runtime deps (mirrors requirements.txt; pyproject is canonical going forward)
+dependencies = [
+  "textual>=0.54,<1.0",
+  "PyYAML>=6.0,<7.0",
+  "psutil>=5.9,<6.0",
+  "pydantic>=2.7,<3.0",
+  "pathspec>=0.12,<1.0",
+  "rich>=13.0,<14.0",
+]
+
+[project.scripts]
+# Installable console entry so you can run `mycli` from anywhere
+mycli = "app:main"
+
+[tool.setuptools]
+include-package-data = true
+py-modules = ["app", "state"]
+
+[tool.setuptools.packages.find]
+include = ["backend*", "components*"]
+exclude = ["tests*", "templates*"]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0,<9.0",
+  "pytest-mock>=3.11,<4.0",
+]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+pythonpath = ["."]
+markers = [
+  "integration: optional longer-running tests against real repositories",
+]
+
+[tool.mycli]
+# Reserved for future configuration (discovery tunables etc.)
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"

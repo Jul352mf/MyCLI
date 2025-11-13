@@ -1,0 +1,11 @@
+name: mycli
+workspace: C:\Dev\Projects\mycli
+dev_dir: C:\Dev\Projects\mycli
+task_start: dev
+apps:
+- code
+- notion
+urls: []
+vercel: null
+supabase: null
+railway: null

@@ -1,0 +1,428 @@
+Metadata-Version: 2.4
+Name: mycli
+Version: 0.2.0
+Summary: Repository command discovery & X-ray scanner CLI (v2 scaffolding)
+Author: Jul352mf
+License-Expression: MIT
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: textual<1.0,>=0.54
+Requires-Dist: PyYAML<7.0,>=6.0
+Requires-Dist: psutil<6.0,>=5.9
+Requires-Dist: pydantic<3.0,>=2.7
+Requires-Dist: pathspec<1.0,>=0.12
+Requires-Dist: rich<14.0,>=13.0
+Provides-Extra: dev
+Requires-Dist: pytest<9.0,>=8.0; extra == "dev"
+Requires-Dist: pytest-mock<4.0,>=3.11; extra == "dev"
+
+# MyCLI - Project Cockpit TUI
+
+A full-screen terminal UI for managing development projects as a unified control panel.
+
+## Prerequisites
+
+- Python 3.8+
+- Windows 11
+- Windows Terminal (`wt.exe`)
+- Task (go-task.github.io/task)
+- Optional: VS Code, Docker Desktop, Notion, Brave Browser
+
+## Installation
+
+Recommended (fast, reproducible) install uses **uv**. Manual venv remains as fallback.
+
+### Option A: uv (recommended)
+
+1. Clone or download this project to `C:\Dev\Projects\mycli`
+2. Ensure Python 3.11+ is installed.
+3. Install uv (one-time):
+```powershell
+pip install uv  # or: winget install astral-sh.uv
+```
+4. Sync environment (creates `.venv` + `uv.lock` automatically):
+```powershell
+cd C:\Dev\Projects\mycli
+uv sync
+```
+5. Run directly with uv:
+```powershell
+uv run mycli
+```
+6. Or activate the created venv if you prefer:
+```powershell
+& .\.venv\Scripts\Activate.ps1
+mycli
+```
+
+### Option B: Manual venv (legacy)
+
+```powershell
+cd C:\Dev\Projects\mycli
+python -m venv .venv
+& .\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+pip install -e .  # console script
+```
+
+### Install as a command (recommended)
+
+Install the package in your environment to get a global `mycli` command:
+
+```powershell
+cd C:\Dev\Projects\mycli
+pip install -e .
+```
+
+This creates a console script so you can run `mycli` from any directory.
+
+## Running the Application
+
+```powershell
+cd C:\Dev\Projects\mycli
+.\.venv\Scripts\python.exe app.py
+```
+
+Or simply from anywhere after installing:
+
+```powershell
+mycli
+```
+
+Behavior when run from anywhere:
+- If the current directory (CWD) is already under a registered project, the app opens that project.
+- If the CWD is not covered, `mycli` will register it as a new project wrapper automatically and run command discovery so the catalog is ready.
+- If `uv.lock` is present the environment was provisioned by uv.
+
+## Migrating Existing Setup to uv
+
+If you previously used a manual venv:
+```powershell
+# (Optional) remove old environment
+Remove-Item -Recurse -Force .\.venv
+
+pip install uv
+uv sync  # creates fresh .venv + uv.lock
+uv run mycli
+```
+
+Keep `requirements.txt` only if external tooling still expects it; otherwise rely on `pyproject.toml` + `uv.lock` as the single source of truth.
+
+## Setting Up Projects
+
+### Project Structure
+
+All projects must be located in: `C:\Dev\Projects\`
+
+Each project needs a `project.yaml` configuration file in its root directory.
+
+### Manual Project Setup
+
+Create a folder in `C:\Dev\Projects\yourproject\` with this structure:
+
+```
+C:\Dev\Projects\yourproject\
+├── project.yaml              # Required configuration file
+├── Taskfile.yml             # Task runner configuration (optional)
+├── docker-compose.yml       # Docker services (optional)
+└── yourproject.code-workspace  # VS Code workspace (optional)
+```
+
+### project.yaml Configuration
+
+Create `project.yaml` with the following structure:
+
+```yaml
+name: Your Project Name
+workspace: C:\Dev\Projects\yourproject\yourproject.code-workspace
+dev_dir: C:\Dev\Projects\yourproject
+task_start: dev
+apps:
+  - code
+  - notion
+urls:
+  - http://localhost:3000
+  - http://localhost:5173
+  - https://yourproject.com/dashboard
+
+# Cloud provider metadata (optional)
+vercel:
+  project_slug: yourproject
+  team_id: team_abc123
+  token: null
+
+supabase:
+  api_url: https://yourproject.supabase.co
+  api_health_check: /rest/v1/
+
+railway:
+  project_id: 550e8400-e29b-41d4-a716-446655440000
+  environment_id: 6ba7b810-9dad-11d1-80b4-00c04fd430c8
+  token: null
+```
+
+#### Configuration Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | string | Display name for your project |
+| `workspace` | string | Path to VS Code `.code-workspace` file |
+| `dev_dir` | string | Working directory for task execution |
+| `task_start` | string | Main development task name (from Taskfile.yml) |
+| `apps` | list | Applications to launch on environment start |
+| `urls` | list | URLs to open in browser |
+| `vercel` | object | Vercel deployment configuration (optional) |
+| `supabase` | object | Supabase API configuration (optional) |
+| `railway` | object | Railway service configuration (optional) |
+
+### Taskfile.yml Example
+
+Create `Taskfile.yml` in your project directory:
+
+```yaml
+version: '3'
+
+tasks:
+  dev:
+    desc: Start development server
+    cmds:
+      - npm run dev
+
+  build:
+    desc: Build project
+    cmds:
+      - npm run build
+
+  test:
+    desc: Run tests
+    cmds:
+      - npm test
+
+  lint:
+    desc: Run linter
+    cmds:
+      - npm run lint
+```
+
+### VS Code Workspace Example
+
+Create `yourproject.code-workspace`:
+
+```json
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.formatOnSave": true
+  }
+}
+```
+
+## Using the TUI
+
+### Navigation
+
+- **Arrow Keys**: Navigate between projects in the sidebar
+- **Tab**: Move between interactive elements (max 5 tabbable elements)
+- **ESC**: Go back to dashboard view or cancel dialog
+- **Enter**: Select a project or confirm action
+- **Space**: Cycle through options (context-sensitive)
+- **Q**: Quit application
+
+### Key Bindings
+
+| Key | Action | Description |
+|-----|--------|-------------|
+| **1** | Start / Task 1 | Start development environment OR run first task (in task view) |
+| **2** | Stop / Task 2 | Stop environment OR run second task (in task view) |
+| **3** | Tasks / Task 3 | Display all tasks OR run third task (in task view) |
+| **4** | Dashboards / Task 4 | Open all project URLs OR run fourth task (in task view) |
+| **5** | System / Task 5 | Show system health OR run fifth task (in task view) |
+| **6** | Create / Task 6 | Create new project OR run sixth task (in task view) |
+| **ESC** | Back | Return to dashboard view from any other view |
+| **Q** | Quit | Exit application |
+
+**Note:** Keys 1-6 are context-sensitive. In dashboard/system views they perform the main actions. In task view (after pressing 3), they execute the corresponding tasks.
+
+### Task Execution (Task View)
+
+After pressing **3** to view tasks, press number keys to execute:
+
+- **1-6**: Execute corresponding task in new Windows Terminal tab
+- **ESC**: Return to dashboard view
+
+**Note:** Only the first 6 tasks get keyboard shortcuts.
+
+### Views
+
+#### Dashboard View (Default)
+Shows:
+- Project name and paths
+- Configuration summary
+- Application count
+- URL count
+- Cloud provider metadata
+
+#### Tasks View (F3)
+Shows:
+- All tasks from Taskfile.yml
+- Numeric shortcuts for execution
+
+#### System View (Press 5)
+Shows:
+- CPU usage percentage
+- RAM usage percentage
+- Count of listening network ports
+- Docker container count (placeholder)
+
+## Environment Start Process (Press 1)
+
+When you press **1**, the application performs these actions **idempotently**:
+
+1. **Open VS Code** - Only if not already running
+   - Opens the project workspace file
+   
+2. **Start Docker Desktop** - Only if not already running
+   - Launches Docker Desktop application
+
+3. **Start Notion** - Only if not already running
+   - Opens Notion application
+
+4. **Execute Main Task** - Always runs
+   - Opens new Windows Terminal tab
+   - Changes to project's `dev_dir`
+   - Runs: `task <task_start>`
+
+5. **Open URLs** - Based on browser state
+   - If Brave not running: Launch Brave with all URLs
+   - If Brave already running: Open URLs in existing browser
+
+## Environment Stop Process (Press 2)
+
+When you press **2**:
+
+1. Checks for `docker-compose.yml` in `dev_dir`
+2. If found, runs: `docker compose down`
+3. Does **not** close VS Code or Notion
+4. Refreshes dashboard
+
+## Tips & Best Practices
+
+### Project Organization
+
+- Keep all projects under `C:\Dev\Projects\`
+- Use consistent naming for workspace files
+- Always include a `Taskfile.yml` with at least a `dev` task
+
+### Task Naming
+
+- Use short, memorable task names
+- Common conventions: `dev`, `build`, `test`, `lint`, `deploy`
+
+### URL Management
+
+- Include localhost development URLs
+- Add production/staging dashboards
+- Include monitoring tools (Vercel, Railway, etc.)
+
+### Cloud Metadata
+
+- Keep `token` fields as `null` in `project.yaml`
+- Tokens should come from environment variables (future feature)
+- Include all project IDs for future integration
+
+## Troubleshooting
+
+### Project Not Appearing
+
+1. Verify project folder exists in `C:\Dev\Projects\`
+2. Check `project.yaml` exists in project root
+3. Validate YAML syntax
+4. Restart the TUI application
+
+### Tasks Not Loading
+
+1. Verify `Taskfile.yml` exists in project directory
+2. Check YAML syntax
+3. Ensure `tasks:` section exists
+
+### Applications Not Starting
+
+1. Verify applications are installed
+2. Check application paths in `executor.py`
+3. Ensure no permission issues
+
+### Docker Compose Not Stopping
+
+1. Verify `docker-compose.yml` exists in `dev_dir`
+2. Check Docker is running
+3. Verify you have permissions to stop containers
+
+## Future Features (Not Yet Implemented)
+
+- Cloud provider status checks (Vercel, Supabase, Railway)
+- Real-time health monitoring with auto-refresh
+- Docker container listing and management
+- Advanced task filtering and search
+- Environment variable management
+- Log viewer integration
+- Custom keybinding configuration
+
+## Project Structure Reference
+
+```
+mycli/
+├── app.py                    # Main application
+├── state.py                  # Global state
+├── styles.tcss              # UI styling
+├── requirements.txt         # Dependencies
+├── components/
+│   ├── project_list.py      # Sidebar
+│   ├── dashboard.py         # Main panel
+│   └── footer_bar.py        # Footer
+└── backend/
+    ├── loader.py            # Project discovery
+    ├── models.py            # Data models
+    ├── executor.py          # Process management
+    ├── tasks.py             # Task handling
+    └── health.py            # System monitoring
+```
+
+## Discovery runner (experimental)
+
+Run the lightweight discovery engine against any repository path and output
+normalized commands as JSON. This is useful for smoke testing against a
+real-world repo like the JAGI monorepo.
+
+```powershell
+# From mycli root
+.\.venv\Scripts\python.exe scripts\discover_repo.py --path .
+
+# Example: target the JAGI monorepo and write results to results.json
+.\.venv\Scripts\python.exe scripts\discover_repo.py \
+  --path "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21" \
+  --out results.json --show-raw --xray
+```
+
+Optional integration test (disabled by default):
+
+```powershell
+$env:MYCLI_DISCOVERY_REPO = "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21"
+.\.venv\Scripts\python.exe -m pytest -q -k discovery_integration
+```
+
+Execute discovered commands (Taskfile adapter only, for now):
+
+```powershell
+.\.venv\Scripts\python.exe scripts\run_discovered.py `
+  --path "C:\\Dev\\Projects\\JAGI\\v2\\v21\\JAGI_v21"
+```
+
+
+
+## License
+
+This project is for internal development use.

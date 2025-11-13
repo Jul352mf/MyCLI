@@ -1,0 +1,443 @@
+id: nodejs-api
+name: Node.js Express API
+description: RESTful API with Express, TypeScript, and modern Node.js patterns
+language: TypeScript
+
+required_fields:
+  - project_name
+  - description
+  - author
+
+optional_fields:
+  - license
+
+directories:
+  - src
+  - src/routes
+  - src/controllers
+  - src/services
+  - src/middleware
+  - src/models
+  - tests
+  - .github
+  - .github/workflows
+
+files:
+  "README.md": |
+    # {{project_name}}
+
+    {{description}}
+
+    ## Features
+
+    - 🚀 Express.js for routing
+    - 📘 TypeScript for type safety
+    - ✅ Jest for testing
+    - 🔒 Helmet for security
+    - 📝 Winston for logging
+    - 🐳 Docker support
+    - 🚀 GitHub Actions CI/CD
+
+    ## Getting Started
+
+    ```bash
+    # Install dependencies
+    npm install
+
+    # Run development server
+    npm run dev
+
+    # Run tests
+    npm test
+
+    # Build for production
+    npm run build
+
+    # Start production server
+    npm start
+    ```
+
+    API runs at [http://localhost:3000](http://localhost:3000)
+
+    ## Author
+
+    {{author}}
+
+    ## License
+
+    {{license}}
+
+  "package.json": |
+    {
+      "name": "{{project_name}}",
+      "version": "1.0.0",
+      "description": "{{description}}",
+      "main": "dist/index.js",
+      "scripts": {
+        "dev": "tsx watch src/index.ts",
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "lint": "eslint src --ext .ts",
+        "format": "prettier --write \"src/**/*.ts\""
+      },
+      "dependencies": {
+        "express": "^4.18.2",
+        "helmet": "^7.1.0",
+        "cors": "^2.8.5",
+        "dotenv": "^16.3.1",
+        "winston": "^3.11.0"
+      },
+      "devDependencies": {
+        "@types/express": "^4.17.21",
+        "@types/cors": "^2.8.17",
+        "@types/node": "^20.10.0",
+        "@types/jest": "^29.5.10",
+        "@types/supertest": "^2.0.16",
+        "@typescript-eslint/eslint-plugin": "^6.13.1",
+        "@typescript-eslint/parser": "^6.13.1",
+        "eslint": "^8.54.0",
+        "jest": "^29.7.0",
+        "prettier": "^3.1.0",
+        "supertest": "^6.3.3",
+        "ts-jest": "^29.1.1",
+        "tsx": "^4.6.2",
+        "typescript": "^5.3.2"
+      }
+    }
+
+  "tsconfig.json": |
+    {
+      "compilerOptions": {
+        "target": "ES2020",
+        "module": "commonjs",
+        "lib": ["ES2020"],
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "moduleResolution": "node"
+      },
+      "include": ["src/**/*"],
+      "exclude": ["node_modules", "dist", "tests"]
+    }
+
+  "jest.config.js": |
+    module.exports = {
+      preset: 'ts-jest',
+      testEnvironment: 'node',
+      roots: ['<rootDir>/tests'],
+      testMatch: ['**/*.test.ts'],
+      collectCoverageFrom: ['src/**/*.ts'],
+    }
+
+  ".eslintrc.json": |
+    {
+      "parser": "@typescript-eslint/parser",
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+      },
+      "env": {
+        "node": true,
+        "es6": true
+      }
+    }
+
+  ".prettierrc": |
+    {
+      "semi": true,
+      "singleQuote": true,
+      "tabWidth": 2,
+      "trailingComma": "es5"
+    }
+
+  "src/index.ts": |
+    import express from 'express';
+    import helmet from 'helmet';
+    import cors from 'cors';
+    import dotenv from 'dotenv';
+    import { logger } from './middleware/logger';
+    import { errorHandler } from './middleware/errorHandler';
+    import healthRoutes from './routes/health';
+
+    dotenv.config();
+
+    const app = express();
+    const PORT = process.env.PORT || 3000;
+
+    // Middleware
+    app.use(helmet());
+    app.use(cors());
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: true }));
+    app.use(logger);
+
+    // Routes
+    app.use('/api/health', healthRoutes);
+
+    app.get('/', (req, res) => {
+      res.json({ message: 'Welcome to {{project_name}}' });
+    });
+
+    // Error handling
+    app.use(errorHandler);
+
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+
+    export default app;
+
+  "src/routes/health.ts": |
+    import { Router } from 'express';
+    import { getHealthStatus } from '../controllers/healthController';
+
+    const router = Router();
+
+    router.get('/', getHealthStatus);
+
+    export default router;
+
+  "src/controllers/healthController.ts": |
+    import { Request, Response } from 'express';
+
+    export const getHealthStatus = (req: Request, res: Response) => {
+      res.json({
+        status: 'healthy',
+        timestamp: new Date().toISOString(),
+      });
+    };
+
+  "src/services/.gitkeep": ""
+
+  "src/models/.gitkeep": ""
+
+  "src/middleware/logger.ts": |
+    import { Request, Response, NextFunction } from 'express';
+    import winston from 'winston';
+
+    const winstonLogger = winston.createLogger({
+      level: 'info',
+      format: winston.format.json(),
+      transports: [
+        new winston.transports.Console({
+          format: winston.format.simple(),
+        }),
+      ],
+    });
+
+    export const logger = (req: Request, res: Response, next: NextFunction) => {
+      winstonLogger.info(`${req.method} ${req.url}`);
+      next();
+    };
+
+  "src/middleware/errorHandler.ts": |
+    import { Request, Response, NextFunction } from 'express';
+
+    export const errorHandler = (
+      err: Error,
+      req: Request,
+      res: Response,
+      next: NextFunction
+    ) => {
+      console.error(err.stack);
+      res.status(500).json({
+        error: 'Internal Server Error',
+        message: err.message,
+      });
+    };
+
+  "tests/health.test.ts": |
+    import request from 'supertest';
+    import app from '../src/index';
+
+    describe('Health Endpoints', () => {
+      it('should return healthy status', async () => {
+        const response = await request(app).get('/api/health');
+        expect(response.status).toBe(200);
+        expect(response.body).toHaveProperty('status', 'healthy');
+      });
+
+      it('should return welcome message at root', async () => {
+        const response = await request(app).get('/');
+        expect(response.status).toBe(200);
+        expect(response.body).toHaveProperty('message');
+      });
+    });
+
+  ".env.example": |
+    PORT=3000
+    NODE_ENV=development
+
+  "Dockerfile": |
+    FROM node:18-alpine
+
+    WORKDIR /app
+
+    COPY package*.json ./
+    RUN npm ci --only=production
+
+    COPY . .
+    RUN npm run build
+
+    EXPOSE 3000
+
+    CMD ["npm", "start"]
+
+  "docker-compose.yml": |
+    version: '3.8'
+
+    services:
+      api:
+        build: .
+        ports:
+          - "3000:3000"
+        environment:
+          - NODE_ENV=development
+        volumes:
+          - .:/app
+          - /app/node_modules
+
+  ".dockerignore": |
+    node_modules
+    npm-debug.log
+    dist
+    .git
+    .gitignore
+    README.md
+
+  ".gitignore": |
+    # Dependencies
+    node_modules/
+
+    # Production
+    dist/
+    build/
+
+    # Environment
+    .env
+    .env.local
+
+    # Logs
+    logs/
+    *.log
+
+    # Testing
+    coverage/
+
+    # IDE
+    .vscode/
+    .idea/
+    *.swp
+
+    # OS
+    .DS_Store
+    Thumbs.db
+
+  ".github/workflows/ci.yml": |
+    name: CI
+
+    on:
+      push:
+        branches: [main, develop]
+      pull_request:
+        branches: [main, develop]
+
+    jobs:
+      test:
+        runs-on: ubuntu-latest
+
+        steps:
+          - uses: actions/checkout@v3
+
+          - name: Setup Node.js
+            uses: actions/setup-node@v3
+            with:
+              node-version: '18'
+              cache: 'npm'
+
+          - name: Install dependencies
+            run: npm ci
+
+          - name: Lint
+            run: npm run lint
+
+          - name: Run tests
+            run: npm test
+
+          - name: Build
+            run: npm run build
+
+  "Taskfile.yml": |
+    version: '3'
+
+    tasks:
+      dev:
+        desc: Start development server
+        cmds:
+          - npm run dev
+
+      build:
+        desc: Build for production
+        cmds:
+          - npm run build
+
+      start:
+        desc: Start production server
+        cmds:
+          - npm start
+
+      test:
+        desc: Run tests
+        cmds:
+          - npm test
+
+      test-watch:
+        desc: Run tests in watch mode
+        cmds:
+          - npm run test:watch
+
+      lint:
+        desc: Run linter
+        cmds:
+          - npm run lint
+
+      format:
+        desc: Format code
+        cmds:
+          - npm run format
+
+      docker-build:
+        desc: Build Docker image
+        cmds:
+          - docker-compose build
+
+      docker-up:
+        desc: Start Docker containers
+        cmds:
+          - docker-compose up -d
+
+      docker-down:
+        desc: Stop Docker containers
+        cmds:
+          - docker-compose down
+
+  "project.yaml": |
+    name: "{{project_name}}"
+    workspace: "."
+    dev_dir: "."
+    task_start: "dev"
+    urls:
+      - "http://localhost:3000"
+      - "http://localhost:3000/api/health"
+    apps:
+      - vscode

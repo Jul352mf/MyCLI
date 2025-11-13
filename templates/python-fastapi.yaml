@@ -1,0 +1,344 @@
+id: python-fastapi
+name: Python FastAPI API
+description: Production-ready FastAPI REST API with tests, Docker, and documentation
+language: Python
+
+required_fields:
+  - project_name
+  - description
+  - author
+
+optional_fields:
+  - license
+
+directories:
+  - src
+  - src/api
+  - src/models
+  - src/services
+  - tests
+  - tests/api
+  - docs
+  - .github
+  - .github/workflows
+
+files:
+  "README.md": |
+    # {{project_name}}
+
+    {{description}}
+
+    ## Features
+
+    - ⚡ FastAPI for high performance
+    - 🔒 Pydantic for data validation
+    - 🐳 Docker support
+    - ✅ Pytest for testing
+    - 📝 Auto-generated OpenAPI docs
+    - 🚀 GitHub Actions CI/CD
+
+    ## Setup
+
+    ```bash
+    # Install dependencies
+    pip install -r requirements.txt
+
+    # Run development server
+    uvicorn src.main:app --reload
+
+    # Run tests
+    pytest
+
+    # Run with Docker
+    docker-compose up
+    ```
+
+    ## API Documentation
+
+    Once running, visit:
+    - Swagger UI: http://localhost:8000/docs
+    - ReDoc: http://localhost:8000/redoc
+
+    ## Author
+
+    {{author}}
+
+    ## License
+
+    {{license}}
+
+  "requirements.txt": |
+    fastapi==0.104.1
+    uvicorn[standard]==0.24.0
+    pydantic==2.5.0
+    pydantic-settings==2.1.0
+    python-multipart==0.0.6
+    httpx==0.25.2
+
+  "requirements-dev.txt": |
+    pytest==7.4.3
+    pytest-cov==4.1.0
+    pytest-asyncio==0.21.1
+    black==23.11.0
+    ruff==0.1.6
+    mypy==1.7.1
+
+  "pyproject.toml": |
+    [project]
+    name = "{{project_name}}"
+    version = "0.1.0"
+    description = "{{description}}"
+    authors = [{name = "{{author}}"}]
+    requires-python = ">=3.11"
+
+    [tool.black]
+    line-length = 88
+    target-version = ['py311']
+
+    [tool.ruff]
+    line-length = 88
+    select = ["E", "F", "I"]
+
+    [tool.pytest.ini_options]
+    testpaths = ["tests"]
+    python_files = "test_*.py"
+
+  "src/__init__.py": ""
+
+  "src/main.py": |
+    """FastAPI application entry point."""
+    from fastapi import FastAPI
+    from fastapi.middleware.cors import CORSMiddleware
+
+    from src.api import health
+
+    app = FastAPI(
+        title="{{project_name}}",
+        description="{{description}}",
+        version="0.1.0"
+    )
+
+    # CORS middleware
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+    # Include routers
+    app.include_router(health.router, prefix="/api", tags=["health"])
+
+
+    @app.get("/")
+    async def root():
+        return {"message": "Welcome to {{project_name}}"}
+
+  "src/api/__init__.py": ""
+
+  "src/api/health.py": |
+    """Health check endpoints."""
+    from fastapi import APIRouter
+
+    router = APIRouter()
+
+
+    @router.get("/health")
+    async def health_check():
+        """Health check endpoint."""
+        return {"status": "healthy"}
+
+  "src/models/__init__.py": ""
+
+  "src/services/__init__.py": ""
+
+  "tests/__init__.py": ""
+
+  "tests/conftest.py": |
+    """Pytest configuration and fixtures."""
+    import pytest
+    from fastapi.testclient import TestClient
+
+    from src.main import app
+
+
+    @pytest.fixture
+    def client():
+        """Test client fixture."""
+        return TestClient(app)
+
+  "tests/api/__init__.py": ""
+
+  "tests/api/test_health.py": |
+    """Tests for health endpoints."""
+
+
+    def test_health_check(client):
+        """Test health check endpoint."""
+        response = client.get("/api/health")
+        assert response.status_code == 200
+        assert response.json() == {"status": "healthy"}
+
+
+    def test_root(client):
+        """Test root endpoint."""
+        response = client.get("/")
+        assert response.status_code == 200
+        assert "message" in response.json()
+
+  "Dockerfile": |
+    FROM python:3.11-slim
+
+    WORKDIR /app
+
+    COPY requirements.txt .
+    RUN pip install --no-cache-dir -r requirements.txt
+
+    COPY . .
+
+    EXPOSE 8000
+
+    CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+  "docker-compose.yml": |
+    version: '3.8'
+
+    services:
+      api:
+        build: .
+        ports:
+          - "8000:8000"
+        environment:
+          - ENV=development
+        volumes:
+          - .:/app
+        command: uvicorn src.main:app --host 0.0.0.0 --reload
+
+  ".dockerignore": |
+    __pycache__
+    *.pyc
+    *.pyo
+    *.pyd
+    .Python
+    env/
+    venv/
+    .venv/
+    .pytest_cache/
+    .coverage
+    htmlcov/
+    .git/
+    .gitignore
+
+  ".gitignore": |
+    # Python
+    __pycache__/
+    *.py[cod]
+    *$py.class
+    *.so
+    .Python
+    env/
+    venv/
+    .venv/
+    ENV/
+
+    # Testing
+    .pytest_cache/
+    .coverage
+    htmlcov/
+    .tox/
+
+    # IDE
+    .vscode/
+    .idea/
+    *.swp
+    *.swo
+
+    # OS
+    .DS_Store
+    Thumbs.db
+
+  ".github/workflows/ci.yml": |
+    name: CI
+
+    on:
+      push:
+        branches: [main, develop]
+      pull_request:
+        branches: [main, develop]
+
+    jobs:
+      test:
+        runs-on: ubuntu-latest
+
+        steps:
+          - uses: actions/checkout@v3
+
+          - name: Set up Python
+            uses: actions/setup-python@v4
+            with:
+              python-version: '3.11'
+
+          - name: Install dependencies
+            run: |
+              pip install -r requirements.txt
+              pip install -r requirements-dev.txt
+
+          - name: Run tests
+            run: pytest --cov=src --cov-report=xml
+
+          - name: Lint
+            run: |
+              black --check .
+              ruff check .
+
+  "Taskfile.yml": |
+    version: '3'
+
+    tasks:
+      dev:
+        desc: Start development server
+        cmds:
+          - uvicorn src.main:app --reload
+
+      test:
+        desc: Run tests
+        cmds:
+          - pytest -v
+
+      test-cov:
+        desc: Run tests with coverage
+        cmds:
+          - pytest --cov=src --cov-report=html
+
+      lint:
+        desc: Run linters
+        cmds:
+          - black .
+          - ruff check . --fix
+
+      docker-build:
+        desc: Build Docker image
+        cmds:
+          - docker-compose build
+
+      docker-up:
+        desc: Start Docker containers
+        cmds:
+          - docker-compose up -d
+
+      docker-down:
+        desc: Stop Docker containers
+        cmds:
+          - docker-compose down
+
+  "project.yaml": |
+    name: "{{project_name}}"
+    workspace: "."
+    dev_dir: "."
+    task_start: "dev"
+    urls:
+      - "http://localhost:8000"
+      - "http://localhost:8000/docs"
+    apps:
+      - vscode

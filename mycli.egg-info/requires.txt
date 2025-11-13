@@ -1,0 +1,10 @@
+textual<1.0,>=0.54
+PyYAML<7.0,>=6.0
+psutil<6.0,>=5.9
+pydantic<3.0,>=2.7
+pathspec<1.0,>=0.12
+rich<14.0,>=13.0
+
+[dev]
+pytest<9.0,>=8.0
+pytest-mock<4.0,>=3.11

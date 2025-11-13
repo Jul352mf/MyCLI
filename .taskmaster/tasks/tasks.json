@@ -1,0 +1,248 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Models & Data Layer",
+        "description": "Implement core Pydantic models & utility helpers forming normalized artifact schema",
+        "details": "Create foundational models: ParameterDefinition, CommandDefinition, ProjectConfig (v2 version replacing legacy), RepoStats, RawArtifact, plus hashing + validation helpers. Ensure forward compatibility with v3 LLM enrichment (extensible metadata fields).",
+        "status": "pending",
+        "priority": "high",
+        "dependencies": [],
+        "testStrategy": "Unit tests for each model: field validation, hashing stability, optional params handling.",
+        "subtasks": [
+          {"id": 1, "title": "ParameterDefinition model", "status": "pending", "details": "Define fields: name,type,description,required,default,enum,min,max,regex,examples with validation constraints."},
+          {"id": 2, "title": "CommandDefinition model", "status": "pending", "details": "Include id (stable hash), name, source_path, origin enum, description, parameters list, tags, estimated_runtime_seconds, invocation strategy mapping."},
+          {"id": 3, "title": "ProjectConfig model", "status": "pending", "details": "Fields: id,name,root_path,detected_package_managers,environments,commands list, stats optional."},
+          {"id": 4, "title": "RepoStats model", "status": "pending", "details": "Metrics: total_files,total_lines,total_size_bytes,language_breakdown,largest_files,comment_density_pct,directory_tree,file_length_histogram,health_index."},
+          {"id": 5, "title": "RawArtifact structure", "status": "pending", "details": "Temporary discovery output with type,path,content_snippet,meta,confidence."},
+          {"id": 6, "title": "Hashing utility", "status": "pending", "details": "Stable hash combining source path + name for CommandDefinition.id (use sha256 truncated)."},
+          {"id": 7, "title": "Validation helpers", "status": "pending", "details": "Functions for coercing numeric ranges, enum validation, regex pre-compilation caching."},
+          {"id": 8, "title": "Origin enum & constants", "status": "pending", "details": "Centralize origin values to avoid string drift across plugins."}
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Discovery Plugin Framework",
+        "description": "Implement pluggable Scan→Classify→Extract→Normalize pipeline",
+        "details": "Define DiscoveryPlugin Protocol and engine orchestrator; build registry and execution ordering.",
+        "status": "pending",
+        "priority": "high",
+        "dependencies": [1],
+        "testStrategy": "Mock plugin list; ensure engine aggregates RawArtifacts and builds CommandDefinitions.",
+        "subtasks": [
+          {"id": 1, "title": "DiscoveryPlugin Protocol", "status": "pending"},
+          {"id": 2, "title": "Engine orchestrator", "status": "pending"},
+          {"id": 3, "title": "RawArtifact to Command normalize", "status": "pending"},
+          {"id": 4, "title": "Confidence filtering", "status": "pending"}
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Taskfile & Package Script Parsers",
+        "description": "Extract tasks and npm/pnpm scripts with parameter heuristics",
+        "details": "Implement YAML + JSON parsing, description retrieval, basic parameter inference.",
+        "status": "pending",
+        "priority": "high",
+        "dependencies": [1,2],
+        "testStrategy": "Fixture Taskfile.yml & package.json; assert command list accuracy.",
+        "subtasks": [
+          {"id": 1, "title": "Taskfile parser", "status": "pending"},
+          {"id": 2, "title": "package.json scripts parser", "status": "pending"},
+          {"id": 3, "title": "Parameter inference heuristics", "status": "pending"}
+        ]
+      },
+      {
+        "id": 4,
+        "title": "State Manager & Persistence",
+        "description": "Implement AppState with project registry and refresh logic",
+        "details": "Store projects in memory + write ~/.mycli/state.json; handle add/remove/refresh events.",
+        "status": "pending",
+        "priority": "medium",
+        "dependencies": [1,2],
+        "testStrategy": "Add/remove project unit tests; refresh triggers discovery engine.",
+        "subtasks": [
+          {"id": 1, "title": "AppState class", "status": "pending"},
+          {"id": 2, "title": "Persistence layer", "status": "pending"}
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Command Registry & Dialog Generation",
+        "description": "Provide searchable list + parameter dialog UI",
+        "details": "Build registry indexing tags/origins; dynamic Textual forms from ParameterDefinition.",
+        "status": "pending",
+        "priority": "high",
+        "dependencies": [1,2,4],
+        "testStrategy": "Registry search test + dialog renders required/enum fields.",
+        "subtasks": [
+          {"id": 1, "title": "Registry data structure", "status": "pending"},
+          {"id": 2, "title": "Dialog form generator", "status": "pending"}
+        ]
+      },
+      {
+        "id": 6,
+        "title": "X-ray Scanner & Renderer",
+        "description": "Fast repo stats collection + Textual Rich view",
+        "details": "Implement scanner (os.scandir + pathspec), analyzer, renderer components, export JSON/Markdown.",
+        "status": "pending",
+        "priority": "high",
+        "dependencies": [1],
+        "testStrategy": "Scan fixture repo; assert counts & health index formula.",
+        "subtasks": [
+          {"id": 1, "title": "Scanner component", "status": "pending"},
+          {"id": 2, "title": "Analyzer logic", "status": "pending"},
+          {"id": 3, "title": "Renderer (Textual view)", "status": "pending"},
+          {"id": 4, "title": "Export functions", "status": "pending"}
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Health Metrics Provider",
+        "description": "Collect CPU/RAM/ports process metrics",
+        "details": "Use psutil + netstat equivalent; map processes to known commands where possible.",
+        "status": "pending",
+        "priority": "medium",
+        "dependencies": [1,4],
+        "testStrategy": "Mock psutil; verify metrics structure.",
+        "subtasks": [
+          {"id": 1, "title": "CPU/RAM snapshot", "status": "pending"},
+          {"id": 2, "title": "Open ports detection", "status": "pending"}
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Extended Parsers Set",
+        "description": "Implement remaining language & tool parsers",
+        "details": "Python (click/typer), PowerShell, shell, Dockerfile/compose, LangGraph, templates front matter.",
+        "status": "pending",
+        "priority": "medium",
+        "dependencies": [1,2],
+        "testStrategy": "Fixture scripts for each parser; assert command extraction & params.",
+        "subtasks": [
+          {"id": 1, "title": "Python parser", "status": "pending"},
+          {"id": 2, "title": "PowerShell parser", "status": "pending"},
+          {"id": 3, "title": "Shell parser", "status": "pending"},
+          {"id": 4, "title": "Docker parser", "status": "pending"},
+          {"id": 5, "title": "LangGraph parser", "status": "pending"},
+          {"id": 6, "title": "Template parser", "status": "pending"}
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Template Library & Docs",
+        "description": "Author canonical template examples + guides",
+        "details": "Populate mycli/templates and write docs/TEMPLATES.md, XRAY.md, ARCHITECTURE.md.",
+        "status": "pending",
+        "priority": "medium",
+        "dependencies": [1,5,6,8],
+        "testStrategy": "Lint templates; parser integration tests consume examples.",
+        "subtasks": [
+          {"id": 1, "title": "Python template example", "status": "pending"},
+          {"id": 2, "title": "PowerShell template example", "status": "pending"},
+          {"id": 3, "title": "Shell template example", "status": "pending"},
+          {"id": 4, "title": "Markdown command spec", "status": "pending"},
+          {"id": 5, "title": "TEMPLATES.md guide", "status": "pending"},
+          {"id": 6, "title": "XRAY.md metrics doc", "status": "pending"},
+          {"id": 7, "title": "ARCHITECTURE.md summary", "status": "pending"}
+        ]
+      },
+      {
+        "id": 10,
+        "title": "UI Components & Keybindings",
+        "description": "Implement sidebar, dashboard, dialog, x-ray view, footer",
+        "details": "Wire Textual components; assign F keybindings per PRD; integrate state & registry.",
+        "status": "pending",
+        "priority": "medium",
+        "dependencies": [1,4,5,6],
+        "testStrategy": "Component instantiation tests; snapshot basic render (textual DOM).",
+        "subtasks": [
+          {"id": 1, "title": "Project list component", "status": "pending"},
+          {"id": 2, "title": "Dashboard component", "status": "pending"},
+          {"id": 3, "title": "Command dialog component", "status": "pending"},
+          {"id": 4, "title": "X-ray view component", "status": "pending"},
+          {"id": 5, "title": "Footer bar component", "status": "pending"},
+          {"id": 6, "title": "Styles.tcss theme", "status": "pending"}
+        ]
+      },
+      {
+        "id": 11,
+        "title": "Execution Layer",
+        "description": "Process spawn strategies & cancellation",
+        "details": "Implement adapters for shell, python, node, docker, taskfile tasks; capture logs & exit codes.",
+        "status": "pending",
+        "priority": "medium",
+        "dependencies": [1,2,5],
+        "testStrategy": "Mock subprocess; verify adapter selection & result structure.",
+        "subtasks": [
+          {"id": 1, "title": "Shell adapter", "status": "pending"},
+          {"id": 2, "title": "Python adapter", "status": "pending"},
+          {"id": 3, "title": "Node adapter", "status": "pending"},
+          {"id": 4, "title": "Docker adapter", "status": "pending"},
+          {"id": 5, "title": "Taskfile adapter", "status": "pending"},
+          {"id": 6, "title": "Cancellation logic", "status": "pending"}
+        ]
+      },
+      {
+        "id": 12,
+        "title": "Testing & Performance Validation",
+        "description": "Unit tests + scan speed benchmarks",
+        "details": "Cover models, parsers, discovery engine, registry, X-ray health index; add simple benchmark script.",
+        "status": "pending",
+        "priority": "medium",
+        "dependencies": [1,2,3,6,11],
+        "testStrategy": "pytest coverage aims ≥70%; benchmark under thresholds.",
+        "subtasks": [
+          {"id": 1, "title": "Model tests", "status": "pending"},
+          {"id": 2, "title": "Parser tests", "status": "pending"},
+          {"id": 3, "title": "Engine tests", "status": "pending"},
+          {"id": 4, "title": "Registry/dialog tests", "status": "pending"},
+          {"id": 5, "title": "X-ray performance test", "status": "pending"}
+        ]
+      },
+      {
+        "id": 13,
+        "title": "Template Adoption Support",
+        "description": "Utilities to encourage template usage & validation",
+        "details": "Add template linter & suggestion commands; warnings for low-confidence parameter extraction.",
+        "status": "pending",
+        "priority": "low",
+        "dependencies": [1,8,9],
+        "testStrategy": "Linter identifies missing mandatory meta fields.",
+        "subtasks": [
+          {"id": 1, "title": "Template linter", "status": "pending"},
+          {"id": 2, "title": "Suggestion generator", "status": "pending"}
+        ]
+      },
+      {
+        "id": 14,
+        "title": "Logging & Error Taxonomy",
+        "description": "Structured JSON lines logger & error classes",
+        "details": "Define ParserError, ExecutionError, ValidationError; logger integrates with execution layer.",
+        "status": "pending",
+        "priority": "low",
+        "dependencies": [1,11],
+        "testStrategy": "Raise each error type; assert log output structure.",
+        "subtasks": [
+          {"id": 1, "title": "Error classes", "status": "pending"},
+          {"id": 2, "title": "Structured logger", "status": "pending"}
+        ]
+      },
+      {
+        "id": 15,
+        "title": "Documentation Deliverables",
+        "description": "Write TEMPLATES.md, ARCHITECTURE.md, XRAY.md",
+        "details": "Author docs summarizing implementation & usage patterns; keep PRD aligned.",
+        "status": "pending",
+        "priority": "low",
+        "dependencies": [9,6,5],
+        "testStrategy": "Manual review; ensure examples parse correctly.",
+        "subtasks": [
+          {"id": 1, "title": "TEMPLATES.md", "status": "pending"},
+          {"id": 2, "title": "ARCHITECTURE.md", "status": "pending"},
+          {"id": 3, "title": "XRAY.md", "status": "pending"}
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+/* Minimalist Swiss Dark Theme */
+
+Screen {
+    background: #1a1a1a;
+}
+
+HeaderBar {
+    dock: top;
+    height: 3;
+    background: #0a0a0a;
+    border-bottom: solid #333333;
+    padding: 1 2;
+}
+
+ProjectList {
+    width: 34;
+    background: #1a1a1a;
+    border-right: solid #333333;
+}
+
+Dashboard {
+    background: #1a1a1a;
+    padding: 2;
+}
+
+StatusBar {
+    dock: bottom;
+    height: 1;
+    background: #0a0a0a;
+    padding: 0 2;
+}
+
+FooterBar {
+    dock: bottom;
+    height: 3;
+    background: #0a0a0a;
+    color: #cccccc;
+    border-top: solid #333333;
+}
+
+ListItem {
+    background: #1a1a1a;
+    color: #cccccc;
+}
+
+ListItem:hover {
+    background: #2a2a2a;
+}
+
+ListItem.-selected {
+    background: #333333;
+    color: #ffffff;
+    text-style: bold;
+}
+
+Label {
+    color: #cccccc;
+}
+
+.header {
+    color: #ffffff;
+    text-style: bold;
+}
+
+.section-title {
+    color: #ffffff;
+    text-style: bold;
+}
+
+Static {
+    color: #cccccc;
+}
+
+#dashboard_content {
+    height: 100%;
+}
+
+#status_message {
+    color: #888888;
+}
+
+#header_text {
+    text-align: left;
+}
+
+#footer_text {
+    text-align: center;
+    padding: 1;
+}
