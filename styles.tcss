@@ -79,10 +79,6 @@ Button:hover {
     color: #ffffff;
 }
 
-Button:active {
-    background: #1e3a8a;  /* Dark royal blue */
-    color: #ffffff;
-}
 
 Button.-primary {
     background: #059669;  /* Success green */
@@ -94,10 +90,6 @@ Button.-primary:hover {
     color: #ffffff;
 }
 
-Button.-primary:active {
-    background: #047857;
-    color: #ffffff;
-}
 
 Button.-error {
     background: #dc2626;  /* Error red */
@@ -109,10 +101,6 @@ Button.-error:hover {
     color: #ffffff;
 }
 
-Button.-error:active {
-    background: #b91c1c;
-    color: #ffffff;
-}
 
 Button.-warning {
     background: #d97706;  /* Warning yellow */
@@ -124,10 +112,6 @@ Button.-warning:hover {
     color: #ffffff;
 }
 
-Button.-warning:active {
-    background: #b45309;
-    color: #ffffff;
-}
 
 Label {
     color: #cccccc;

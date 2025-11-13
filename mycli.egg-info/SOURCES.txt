@@ -5,6 +5,7 @@ state.py
 backend/__init__.py
 backend/catalog.py
 backend/creator.py
+backend/env.py
 backend/executor.py
 backend/git_ops.py
 backend/health.py
@@ -12,6 +13,8 @@ backend/loader.py
 backend/memory.py
 backend/models.py
 backend/projects.py
+backend/quick_commands.py
+backend/system_commands.py
 backend/tasks.py
 backend/templates.py
 backend/xray.py
@@ -30,11 +33,13 @@ components/command_dialog.py
 components/create_modal.py
 components/dashboard.py
 components/edit_memory_modal.py
+components/env_modal.py
 components/footer_bar.py
 components/git_modal.py
 components/header_bar.py
 components/project_list.py
 components/status_bar.py
+components/system_quick_commands_modal.py
 mycli.egg-info/PKG-INFO
 mycli.egg-info/SOURCES.txt
 mycli.egg-info/dependency_links.txt
@@ -48,6 +53,8 @@ tests/test_executor.py
 tests/test_gitinfo.py
 tests/test_health.py
 tests/test_loader.py
+tests/test_quick_commands.py
+tests/test_system_commands.py
 tests/test_taskfile_plugin.py
 tests/test_tasks.py
 tests/test_xray.py

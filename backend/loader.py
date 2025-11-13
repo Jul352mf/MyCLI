@@ -22,6 +22,10 @@ def load_all_projects() -> None:
         if not os.path.isdir(folder_path):
             continue
         
+        # Don't treat the MyCLI repo folder itself as a project
+        if folder_name.lower() == "mycli":
+            continue
+        
         config_path = os.path.join(folder_path, "project.yaml")
         
         if not os.path.exists(config_path):
