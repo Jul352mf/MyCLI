@@ -226,8 +226,89 @@ Create `yourproject.code-workspace`:
 | **6** | Create / Task 6 | Create new project OR run sixth task (in task view) |
 | **ESC** | Back | Return to dashboard view from any other view |
 | **Q** | Quit | Exit application |
+| **A** | Add Project | Add existing project from path |
+| **G** | Git Panel | Open Git operations panel |
+| **R** | Run Command | Open command selection dialog |
+| **S** | Quick Commands | Open System Quick Commands (NEW!) |
+| **F5** | Refresh | Refresh command catalog |
+| **M** | Memory | Edit project memory/context |
+| **E** | Environment | View environment variables |
+| **ESC** | Back/Close | Return to dashboard or close modal |
 
 **Note:** Keys 1-6 are context-sensitive. In dashboard/system views they perform the main actions. In task view (after pressing 3), they execute the corresponding tasks.
+
+## New Features (v0.2.0)
+
+### System Quick Commands (Press S)
+
+Access powerful system-wide utilities from anywhere in the application by pressing **S**:
+
+#### Processes Tab
+- **View all running processes** with real-time CPU and memory usage
+- **Filter processes** by name or command line
+- **Kill processes** gracefully or forcefully
+- Sorted by CPU usage for easy identification of resource hogs
+
+#### ngrok Tab
+- **Start ngrok tunnels** on any port with one click
+- **View active tunnels** with public URLs
+- Automatic detection of ngrok installation
+- Quick copy of tunnel URLs
+
+#### Quick Commands Tab
+- **Create custom shortcuts** for frequently used commands
+- **Manage quick commands** (add, edit, remove)
+- Scope commands globally or per-project
+- Execute commands with a single click
+
+### Enhanced Project Dashboard
+
+The dashboard now features a **tabbed interface** for better organization:
+
+#### Overview Tab
+- Project status and Git information
+- Running applications status
+- Configuration summary
+- Cloud provider integrations
+
+#### Workspace Tab (NEW!)
+- **View all project URLs** with quick access
+- **Start/Stop command mappings** display
+- Quick actions for common operations
+- One-click URL opening
+
+#### Command Center Tab (NEW!)
+- Discovered commands from Taskfile and package.json
+- Scope-based filtering (monorepo support)
+- Parameter input for complex commands
+- Direct execution from the dashboard
+
+#### X-Ray Tab (NEW!)
+- Repository analysis and metrics
+- Code health indicators
+- Language breakdown
+- File statistics
+
+### Visual Enhancements
+
+**New Color Palette:**
+- **Hover states**: Dark vibrant orange (#b45309) for better feedback
+- **Pressed/Focus states**: Dark royal blue (#1e3a8a) for clear indication
+- **Success indicators**: Green variants (#10b981, #059669, #047857)
+- **Error indicators**: Red variants (#ef4444, #dc2626, #b91c1c)
+- **Warning indicators**: Yellow variants (#f59e0b, #d97706, #b45309)
+
+**Button Variants:**
+- Primary buttons (success actions) in green
+- Error buttons (destructive actions) in red
+- Warning buttons (caution actions) in yellow
+
+### Improved Navigation
+
+- Press **ESC** to close any modal or dialog
+- Tab through interactive elements with visual focus indicators
+- Consistent keyboard shortcuts across all views
+- Status messages with semantic colors
 
 ### Task Execution (Task View)
 
