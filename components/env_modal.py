@@ -19,7 +19,9 @@ from backend.env import parse_env_file
 
 
 class EnvModal(ModalScreen[None]):
-    BINDINGS = []
+    BINDINGS = [
+        ("escape", "close", "",),
+    ]
 
     CSS = """
     EnvModal {
@@ -104,3 +106,7 @@ class EnvModal(ModalScreen[None]):
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "btn_close":
             self.dismiss(None)
+    
+    def action_close(self) -> None:
+        """Close the modal on Escape."""
+        self.dismiss(None)

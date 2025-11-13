@@ -1,0 +1,55 @@
+MyCLI — Next Session PRD (UI/UX Elevation)
+
+Date: 2025-11-13
+Owner: Jules / Project Team
+Status: Draft
+
+Problem
+- Current UI hides many capabilities; lacks system layer view and rich project dashboard.
+
+Goals (next session)
+- System quick commands (processes/ports, kill, ngrok, custom quick commands)
+- Project dashboard with Workspace, Command Center (with scope + params), X-Ray
+- CRUD for URLs and start/stop mapping; descriptive messaging; improved palette
+- Escape closes Env modal and other modals consistently
+- Provide an agent prompt for repo preparation
+
+Non-Goals
+- Full Settings/OAuth, deep X-Ray analytics, full theming overhaul
+
+Primary Users
+- Devs needing a fast control plane across repos
+
+IA
+- Global: System Quick Commands menu
+- Project: Dashboard with tabs (Workspace, Command Center, X-Ray)
+
+Functional Requirements (scope)
+- Processes/ports view & kill; ngrok MVP; custom quick commands CRUD
+- Workspace: CRUD URLs; map start/stop
+- Command Center: filter by scope, parameter UI execute from cwd
+- Env modal: close on Esc; view-only
+- Messaging & Theme: consistent status; palette tweaks
+
+Data Model
+- command_catalog.json overlay; quick_commands.json; project URLs/mapping persisted
+
+Constraints
+- Windows-first; monorepo supported via cwd; param extractor covers flags/key=val/<positional>
+
+Acceptance
+- System menu works (process/kill/ngrok/custom)
+- Project workspace CRUD URLs/start-stop; Command Center filter/run with params
+- Esc closes Env modal; palette visible
+
+Milestones
+- 1) System menu, 2) Workspace tab, 3) Command Center scope filter, 4) Palette & messaging, 5) Polish
+
+Open Questions
+- Settings OAuth now or later? Global vs project quick commands? X-Ray metrics priority?
+
+Appendix: Agent Repo Prep Prompt
+- Use Taskfile.yml tasks with desc and cmd; use <positional>, --flag, --key=value
+- package.json scripts with descriptive names; include packageManager
+- for monorepos, put Taskfile/package.json per subpackage; avoid vendor dirs
+- .env.example; keep .env ignored; README section "Using with MyCLI"
