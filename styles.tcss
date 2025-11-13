@@ -1,4 +1,12 @@
-/* Minimalist Swiss Dark Theme */
+/* Minimalist Swiss Dark Theme with Enhanced UX Colors */
+
+/* Color Palette (PRD_next_session.md):
+ * Hover: dark, subtly vibrant orange (#d97706 darkened)
+ * Pressed: dark royal blue (#1e3a8a)
+ * Success/Working: green variants (#10b981, #059669, #047857)
+ * Error: red variants (#ef4444, #dc2626, #b91c1c)
+ * Warning: yellow variants (#f59e0b, #d97706, #b45309)
+ */
 
 Screen {
     background: #1a1a1a;
@@ -38,19 +46,87 @@ FooterBar {
     border-top: solid #333333;
 }
 
+/* List item states with new color palette */
 ListItem {
     background: #1a1a1a;
     color: #cccccc;
 }
 
 ListItem:hover {
-    background: #2a2a2a;
+    background: #b45309;  /* Dark vibrant orange */
+    color: #ffffff;
 }
 
 ListItem.-selected {
     background: #333333;
     color: #ffffff;
     text-style: bold;
+}
+
+ListItem:focus {
+    background: #1e3a8a;  /* Dark royal blue */
+    color: #ffffff;
+}
+
+/* Button states with new palette */
+Button {
+    background: #333333;
+    color: #cccccc;
+}
+
+Button:hover {
+    background: #b45309;  /* Dark vibrant orange */
+    color: #ffffff;
+}
+
+Button:active {
+    background: #1e3a8a;  /* Dark royal blue */
+    color: #ffffff;
+}
+
+Button.-primary {
+    background: #059669;  /* Success green */
+    color: #ffffff;
+}
+
+Button.-primary:hover {
+    background: #10b981;
+    color: #ffffff;
+}
+
+Button.-primary:active {
+    background: #047857;
+    color: #ffffff;
+}
+
+Button.-error {
+    background: #dc2626;  /* Error red */
+    color: #ffffff;
+}
+
+Button.-error:hover {
+    background: #ef4444;
+    color: #ffffff;
+}
+
+Button.-error:active {
+    background: #b91c1c;
+    color: #ffffff;
+}
+
+Button.-warning {
+    background: #d97706;  /* Warning yellow */
+    color: #ffffff;
+}
+
+Button.-warning:hover {
+    background: #f59e0b;
+    color: #ffffff;
+}
+
+Button.-warning:active {
+    background: #b45309;
+    color: #ffffff;
 }
 
 Label {
@@ -86,4 +162,80 @@ Static {
 #footer_text {
     text-align: center;
     padding: 1;
+}
+
+/* Semantic color classes for status messages */
+.success {
+    color: #10b981;
+}
+
+.error {
+    color: #ef4444;
+}
+
+.warning {
+    color: #f59e0b;
+}
+
+.info {
+    color: #60a5fa;
+}
+
+/* DataTable styling */
+DataTable {
+    background: #1a1a1a;
+}
+
+DataTable > .datatable--header {
+    background: #0a0a0a;
+    color: #ffffff;
+    text-style: bold;
+}
+
+DataTable > .datatable--cursor {
+    background: #1e3a8a;  /* Dark royal blue for selected row */
+    color: #ffffff;
+}
+
+DataTable:focus > .datatable--cursor {
+    background: #1e3a8a;
+}
+
+/* Tab styling */
+TabbedContent {
+    background: #1a1a1a;
+}
+
+Tabs {
+    background: #0a0a0a;
+}
+
+Tab {
+    background: #1a1a1a;
+    color: #888888;
+}
+
+Tab:hover {
+    background: #b45309;  /* Dark vibrant orange */
+    color: #ffffff;
+}
+
+Tab.-active {
+    background: #333333;
+    color: #ffffff;
+    text-style: bold;
+}
+
+TabPane {
+    background: #1a1a1a;
+}
+
+/* Input styling */
+Input {
+    background: #0a0a0a;
+    border: solid #333333;
+}
+
+Input:focus {
+    border: solid #059669;  /* Success green for focus */
 }

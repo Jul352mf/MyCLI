@@ -1,24 +1,45 @@
 """Main panel dashboard component."""
-from textual.widgets import Static
-from textual.containers import Container
+from textual.widgets import Static, TabbedContent, TabPane, Button, Input, Label, ListView, ListItem
+from textual.containers import Container, Vertical, Horizontal
+from textual.app import ComposeResult
 from backend.executor import is_process_running
 from backend.git_ops import get_git_status
+from backend.models import ProjectConfig
 import os
 import state
 
 
 class Dashboard(Container):
-    """Main panel showing project status and views."""
+    """Main panel showing project status and views with tabbed interface."""
     
-    def compose(self):
+    def compose(self) -> ComposeResult:
         """Create child widgets."""
-        yield Static(
-            "Select a project to view details",
-            id="dashboard_content",
-        )
+        with TabbedContent(id="dashboard_tabs"):
+            with TabPane("Overview", id="overview_tab"):
+                yield Static(
+                    "Select a project to view details",
+                    id="dashboard_content",
+                )
+            
+            with TabPane("Workspace", id="workspace_tab"):
+                yield Static("", id="workspace_content")
+            
+            with TabPane("Command Center", id="command_center_tab"):
+                yield Static("", id="command_center_content")
+            
+            with TabPane("X-Ray", id="xray_tab"):
+                yield Static("", id="xray_content")
     
     def refresh_dashboard(self) -> None:
         """Update dashboard with current project info."""
+        # Update all tabs
+        self._refresh_overview()
+        self._refresh_workspace()
+        self._refresh_command_center()
+        self._refresh_xray()
+    
+    def _refresh_overview(self) -> None:
+        """Update the overview tab (original dashboard content)."""
         content = self.query_one("#dashboard_content", Static)
         
         if not state.selected_project:
@@ -140,7 +161,83 @@ class Dashboard(Container):
                 lines.append(f"  ☁️  {provider}")
         
         # Quick actions hint
-        lines.append("\n[dim]1:Start 2:Stop 3:Tasks 4:URLs 5:System[/dim]")
+        lines.append("\n[dim]1:Start 2:Stop r:Run Cmd s:Quick Cmds[/dim]")
+        
+        content.update("\n".join(lines))
+    
+    def _refresh_workspace(self) -> None:
+        """Update the Workspace tab with URLs and start/stop mappings."""
+        content = self.query_one("#workspace_content", Static)
+        
+        if not state.selected_project:
+            content.update("Select a project to view workspace")
+            return
+        
+        project_key = state.selected_project
+        if project_key not in state.projects:
+            content.update("Project not found")
+            return
+        
+        project_dir, project_config = state.projects[project_key]
+        
+        lines = []
+        lines.append(f"[bold white]Workspace: {project_config.name}[/bold white]\n")
+        
+        # URLs section
+        lines.append("[bold]URLs:[/bold]")
+        if project_config.urls:
+            for i, url in enumerate(project_config.urls, 1):
+                lines.append(f"  {i}. [cyan]{url}[/cyan]")
+        else:
+            lines.append("  [dim]No URLs configured[/dim]")
+        
+        lines.append("")
+        
+        # Start/Stop commands
+        lines.append("[bold]Start/Stop Commands:[/bold]")
+        lines.append(f"  Start: [green]{project_config.task_start}[/green]")
+        lines.append(f"  Stop: [yellow]<not configured>[/yellow]")
+        
+        lines.append("")
+        
+        # Quick actions
+        lines.append("[bold]Quick Actions:[/bold]")
+        lines.append("  • Press [cyan]4[/cyan] to open all URLs")
+        lines.append("  • Press [cyan]1[/cyan] to start environment")
+        lines.append("  • Press [cyan]2[/cyan] to stop environment")
+        
+        lines.append("\n[dim]URL and command mapping management coming soon[/dim]")
+        
+        content.update("\n".join(lines))
+    
+    def _refresh_command_center(self) -> None:
+        """Update the Command Center tab."""
+        content = self.query_one("#command_center_content", Static)
+        
+        if not state.selected_project:
+            content.update("Select a project to view commands")
+            return
+        
+        lines = []
+        lines.append("[bold white]Command Center[/bold white]\n")
+        lines.append("Discovered commands with scope filtering\n")
+        lines.append("[dim]Press [cyan]r[/cyan] to open Command Dialog[/dim]")
+        lines.append("[dim]Press [cyan]F5[/cyan] to refresh command catalog[/dim]")
+        
+        content.update("\n".join(lines))
+    
+    def _refresh_xray(self) -> None:
+        """Update the X-Ray tab."""
+        content = self.query_one("#xray_content", Static)
+        
+        if not state.selected_project:
+            content.update("Select a project to view X-Ray")
+            return
+        
+        lines = []
+        lines.append("[bold white]X-Ray: Repository Analysis[/bold white]\n")
+        lines.append("Repository health metrics and insights\n")
+        lines.append("[dim]Detailed X-Ray view coming soon[/dim]")
         
         content.update("\n".join(lines))
     
@@ -188,6 +285,7 @@ class Dashboard(Container):
         lines.append(f"[cyan]● Ports:[/cyan] {ports} listening")
         lines.append("[dim]● Docker:[/dim] 0 containers")
         
-        lines.append("\n[dim]Press ESC to return • 5 to refresh[/dim]")
+        lines.append("\n[dim]Press ESC to return • s for Quick Cmds[/dim]")
         
         content.update("\n".join(lines))
+
